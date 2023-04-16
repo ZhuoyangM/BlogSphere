@@ -70,3 +70,4 @@ Traceback (most recent call last):
 jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
 2023-04-16 13:25:03,363 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:49]
 2023-04-16 16:09:14,253 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:51]
+2023-04-16 16:47:47,846 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:54]
