@@ -1,12 +1,4 @@
-2023-03-29 15:18:34,525 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-01 14:28:18,016 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-01 14:28:52,685 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-02 15:43:43,881 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-02 16:13:04,996 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-02 17:31:01,278 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:45]
-2023-04-05 15:47:06,614 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:47]
-2023-04-16 13:22:12,831 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:49]
-2023-04-16 13:22:27,199 ERROR: Exception on /user/Alex [GET] [in /Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py:1744]
+2023-04-18 18:11:53,855 ERROR: Exception on /user/Susan [GET] [in /Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -18,26 +10,25 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/app/routes.py", line 97, in user
-    return render_template('user.html', user=user, posts=posts.items,
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/main/routes.py", line 73, in user
+    return render_template('main/user.html', user=user, posts=posts.items,
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/user.html", line 18, in template
-    {{ form.submit(value='Follow'), class_='btn btn-default'}}
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
-2023-04-16 13:23:07,078 ERROR: Exception on /user/Alex [GET] [in /Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py:1744]
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/main/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: base.html
+2023-04-18 18:12:59,270 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:71]
+2023-04-18 18:13:05,919 ERROR: Exception on /user/Susan [GET] [in /Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -49,25 +40,36 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/app/routes.py", line 97, in user
-    return render_template('user.html', user=user, posts=posts.items,
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/main/routes.py", line 73, in user
+    return render_template('main/user.html', user=user, posts=posts.items,
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/user.html", line 18, in template
-    {{ form.submit(value='Follow'), class_='btn btn-default'}}
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
-2023-04-16 13:25:03,363 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:49]
-2023-04-16 16:09:14,253 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:51]
-2023-04-16 16:47:47,846 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:54]
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/main/user.html", line 1, in top-level template code
+    {% extends "main/base.html" %}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/main/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/main/base.html", line 48, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/zhuoyangmeng/Desktop/Microblog/app/templates/main/user.html", line 17, in block 'app_content'
+    <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?

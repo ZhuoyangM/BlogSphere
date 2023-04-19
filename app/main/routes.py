@@ -22,21 +22,21 @@ def before_request():
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user,)
+        post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')
-        return redirect(url_for('posts.index'))
+        return redirect(url_for('main.index'))
     
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_posts().paginate(
         page=page, per_page=current_app.config['POSTS_PER_PAGE'],
         error_out=False)
-    next_url = url_for('posts.index', page=posts.next_num) \
+    next_url = url_for('main.index', page=posts.next_num) \
         if posts.has_next else None
-    prev_url = url_for('posts.index', page=posts.prev_num) \
+    prev_url = url_for('main.index', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title='Home', form=form,
+    return render_template('main/index.html', title='Home', form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
@@ -52,7 +52,7 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('main.explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title='Explore',
+    return render_template('main/index.html', title='Explore',
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
@@ -70,7 +70,7 @@ def user(username):
     prev_url = url_for('main.user', username=user.username,
                        page=posts.prev_num) if posts.has_prev else None
     form = EmptyForm()
-    return render_template('user.html', user=user, posts=posts.items,
+    return render_template('main/user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url, form=form)
 
 
@@ -87,7 +87,7 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title='Edit Profile',
+    return render_template('main/edit_profile.html', title='Edit Profile',
                            form=form)
 
 
@@ -98,14 +98,14 @@ def follow(username):
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
         if user is None:
-            flash('User %(username)s not found.', username=username)
+            flash('User {} not found.'.format(username))
             return redirect(url_for('main.index'))
         if user == current_user:
             flash('You cannot follow yourself!')
             return redirect(url_for('main.user', username=username))
         current_user.follow(user)
         db.session.commit()
-        flash('You are following %(username)s!', username=username)
+        flash('You are following {}!'.format(username))
         return redirect(url_for('main.user', username=username))
     else:
         return redirect(url_for('main.index'))
@@ -118,14 +118,14 @@ def unfollow(username):
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
         if user is None:
-            flash('User %(username)s not found.', username=username)
+            flash('User {} not found.'.format(username))
             return redirect(url_for('main.index'))
         if user == current_user:
             flash('You cannot unfollow yourself!')
             return redirect(url_for('main.user', username=username))
         current_user.unfollow(user)
         db.session.commit()
-        flash('You are not following %(username)s.', username=username)
+        flash('You are not following {}.'.format(username))
         return redirect(url_for('main.user', username=username))
     else:
         return redirect(url_for('main.index'))
