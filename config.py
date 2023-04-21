@@ -18,4 +18,6 @@ class Config(object):
     ADMINS = ['2023appli@gmail.com']
     POSTS_PER_PAGE = 3
     LANGUAGES = ['en']
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+
 
