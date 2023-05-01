@@ -73,3 +73,7 @@ Traceback (most recent call last):
   File "/Users/zhuoyangmeng/Desktop/Microblog/myblog/lib/python3.9/site-packages/werkzeug/routing/map.py", line 917, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_profile'. Did you mean 'main.edit_profile' instead?
+2023-05-01 20:25:25,723 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
+2023-05-01 20:25:50,239 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
+2023-05-01 22:30:16,326 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
+2023-05-01 22:30:42,902 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
