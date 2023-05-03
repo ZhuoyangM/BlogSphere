@@ -77,3 +77,5 @@ werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_p
 2023-05-01 20:25:50,239 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
 2023-05-01 22:30:16,326 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
 2023-05-01 22:30:42,902 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:76]
+2023-05-03 18:15:16,651 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:79]
+2023-05-03 18:15:24,223 INFO: Microblog startup [in /Users/zhuoyangmeng/Desktop/Microblog/app/__init__.py:79]
